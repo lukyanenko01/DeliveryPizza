@@ -9,14 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var isAuth = true
+    
     @State private var nomber = ""
     @State private var password = ""
+    @State private var repitPassword = ""
 
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Авторизація")
-                .padding()
+            Text(isAuth ? "Авторизація" : "Реєстрація")
+                .padding(isAuth ? 16 : 24)
                 .padding(.horizontal, 30)
                 .font(.title2.bold())
                 .background(Color("whiteAlpha"))
@@ -36,13 +39,26 @@ struct ContentView: View {
                     .cornerRadius(12)
                     .padding(8)
                     .padding(.horizontal, 12)
-
+                
+                if !isAuth {
+                    SecureField("Повторіть пароль", text: $repitPassword)
+                        .padding()
+                        .background(Color("whiteAlpha"))
+                        .cornerRadius(12)
+                        .padding(8)
+                        .padding(.horizontal, 12)
+                }
                
                     
                     Button {
-                        print("Увійти")
+                        if isAuth {
+                            print("Увійти")
+                        } else {
+                            print("Реєстрація")
+                        }
+                        
                     } label: {
-                        Text("Увійти")
+                        Text(isAuth ? "Увійти" : "Створити аккаунт")
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(LinearGradient(colors: [.yellow, .orange], startPoint: .leading, endPoint: .trailing))
@@ -54,9 +70,9 @@ struct ContentView: View {
                     }
 
                 Button {
-                     print("Реєстрація")
+                    self.isAuth.toggle()
                 } label: {
-                    Text("Реєстрація")
+                    Text(isAuth ? "Реєстрація" : "Повернутися")
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity)
                         //.background(LinearGradient(colors: [.yellow, .orange], startPoint: .leading, endPoint: .trailing))
@@ -73,11 +89,14 @@ struct ContentView: View {
             .padding(.top, 16)
             .background(Color("whiteAlpha"))
             .cornerRadius(12)
-            .padding()
-            //.padding(30)
+            .padding(isAuth ? 30 : 12)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Image("pizza1").ignoresSafeArea())
+            .background(Image("pizza1")
+                .ignoresSafeArea()
+                .blur(radius: isAuth ? 0 : 6)
+            )
+            .animation(Animation.easeInOut(duration: 0.3), value: isAuth)
     }
 }
 
