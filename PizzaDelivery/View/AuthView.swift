@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AuthView.swift
 //  PizzaDelivery
 //
 //  Created by Lukich on 11.10.2022.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AuthView: View {
     
     @State private var isAuth = true
     
     @State private var nomber = ""
     @State private var password = ""
     @State private var repitPassword = ""
+    
+    @State private var isTabViewShow = false
 
     
     var body: some View {
@@ -53,8 +55,13 @@ struct ContentView: View {
                     Button {
                         if isAuth {
                             print("Увійти")
+                            self.isTabViewShow.toggle()
                         } else {
                             print("Реєстрація")
+                            self.nomber = ""
+                            self.password = ""
+                            self.repitPassword = ""
+                            self.isAuth.toggle()
                         }
                         
                     } label: {
@@ -97,11 +104,15 @@ struct ContentView: View {
                 .blur(radius: isAuth ? 0 : 6)
             )
             .animation(Animation.easeInOut(duration: 0.3), value: isAuth)
+            .fullScreenCover(isPresented: $isTabViewShow) {
+                MainTabBar()
+            }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AuthView()
     }
 }
+
