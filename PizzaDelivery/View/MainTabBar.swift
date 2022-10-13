@@ -12,15 +12,17 @@ struct MainTabBar: View {
         
         TabView {
             
-            MenuView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "menucard")
-                        Text("Меню")
-                    }
+            NavigationView {
+                MenuView()
+            }
+            .tabItem {
+                VStack {
+                    Image(systemName: "menucard")
+                    Text("Меню")
                 }
-            
-            CartView()
+            }
+                        
+            CartView(viewModel: CartViewModel.shared)
                 .tabItem {
                     VStack {
                         Image(systemName: "cart")

@@ -30,12 +30,16 @@ struct ProductCell: View {
         }.frame(width: screen.width * 0.45, height: screen.width * 0.55)
             .background(Color.white)
             .cornerRadius(16)
-            .shadow(radius: 4)
+            .shadow(radius: 2)
     }
 }
 
 struct ProductCell_Previews: PreviewProvider {
     static var previews: some View {
-        ProductCell(product: Product(id: "1", title: "Маргарита", imageUrl: "Not Found", price: 69, descript: "Дешева піца бери і їж"))
+        ProductCell(product: Product(id: "1",
+                                     title: "Маргарита",
+                                     imageUrl: "Not Found",
+                                     price: 69,
+                                     descript: "Дешева піца бери і їж"))
     }
 }
