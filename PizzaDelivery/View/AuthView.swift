@@ -11,11 +11,14 @@ struct AuthView: View {
     
     @State private var isAuth = true
     
-    @State private var nomber = ""
+    @State private var email = ""
     @State private var password = ""
     @State private var repitPassword = ""
-    
     @State private var isTabViewShow = false
+    
+    @State private var isShowAlert = false
+    @State private var alertMessage = ""
+
 
     
     var body: some View {
@@ -28,7 +31,7 @@ struct AuthView: View {
                 .cornerRadius(30)
             
             VStack {
-                TextField("Номер телефону", text: $nomber)
+                TextField("Номер телефону", text: $email)
                     .padding()
                     .background(Color("whiteAlpha"))
                     .cornerRadius(12)
@@ -58,10 +61,32 @@ struct AuthView: View {
                             self.isTabViewShow.toggle()
                         } else {
                             print("Реєстрація")
-                            self.nomber = ""
-                            self.password = ""
-                            self.repitPassword = ""
-                            self.isAuth.toggle()
+                            
+                            guard password == repitPassword else {
+                                self.alertMessage = "Паролі не співпадають"
+                                self.isShowAlert.toggle()
+                                return
+                            }
+                            
+                            AuthService.share.signUp(email: self.email,
+                                                     password: self.password) { result in
+                                switch result {
+                                    
+                                case .success(let user):
+                                    
+                                    alertMessage = "Ви зареєструвалися з email: \(user.email!) "
+                                    self.isShowAlert.toggle()
+                                    self.email = ""
+                                    self.password = ""
+                                    self.repitPassword = ""
+                                    self.isAuth.toggle()
+                                case .failure(let error):
+                                    alertMessage = "Помилка реєстрації \(error.localizedDescription)! "
+                                    self.isShowAlert.toggle()
+                                }
+                            }
+                            
+                           
                         }
                         
                     } label: {
@@ -97,6 +122,12 @@ struct AuthView: View {
             .background(Color("whiteAlpha"))
             .cornerRadius(12)
             .padding(isAuth ? 30 : 12)
+            .alert(alertMessage,
+                   isPresented: $isShowAlert) {
+                Button { } label: {
+                    Text("OK")
+                }
+            }
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Image("pizza1")
