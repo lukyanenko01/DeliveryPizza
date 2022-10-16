@@ -25,6 +25,8 @@
 		18A6B1B928F820B600EEFA21 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18A6B1B828F820B600EEFA21 /* FirebaseFirestore */; };
 		18A6B1BB28F820B600EEFA21 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 18A6B1BA28F820B600EEFA21 /* FirebaseStorage */; };
 		18C1FD3D28FBEFFD00D8D643 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */; };
+		18C1FD3F28FBF35900D8D643 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1FD3E28FBF35900D8D643 /* MainUser.swift */; };
+		18C1FD4128FBF60300D8D643 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1FD4028FBF60300D8D643 /* DataBaseService.swift */; };
 		18CFDE3628F59EC8009BDC53 /* PizzaDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDE3528F59EC8009BDC53 /* PizzaDeliveryApp.swift */; };
 		18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDE3728F59EC8009BDC53 /* AuthView.swift */; };
 		18CFDE3A28F59ECE009BDC53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CFDE3928F59ECE009BDC53 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		18A6B1B128F7D7B000EEFA21 /* PositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCell.swift; sourceTree = "<group>"; };
 		18A6B1B328F81DC400EEFA21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		18C1FD3E28FBF35900D8D643 /* MainUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUser.swift; sourceTree = "<group>"; };
+		18C1FD4028FBF60300D8D643 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		18CFDE3228F59EC8009BDC53 /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CFDE3528F59EC8009BDC53 /* PizzaDeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDeliveryApp.swift; sourceTree = "<group>"; };
 		18CFDE3728F59EC8009BDC53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				183C649628F6BC410051EE79 /* Product.swift */,
 				18A6B1AF28F7D5FB00EEFA21 /* Position.swift */,
+				18C1FD3E28FBF35900D8D643 /* MainUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				186812D528F838CD00C85A88 /* AuthService.swift */,
+				18C1FD4028FBF60300D8D643 /* DataBaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,7 +245,9 @@
 			files = (
 				18A6B1AE28F7D5C500EEFA21 /* CartViewModel.swift in Sources */,
 				18C1FD3D28FBEFFD00D8D643 /* MainTabBarViewModel.swift in Sources */,
+				18C1FD4128FBF60300D8D643 /* DataBaseService.swift in Sources */,
 				183C649228F6B59B0051EE79 /* CartView.swift in Sources */,
+				18C1FD3F28FBF35900D8D643 /* MainUser.swift in Sources */,
 				18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */,
 				18CFDE3628F59EC8009BDC53 /* PizzaDeliveryApp.swift in Sources */,
 				183C649428F6B6520051EE79 /* PersonView.swift in Sources */,
