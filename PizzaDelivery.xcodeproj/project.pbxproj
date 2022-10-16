@@ -24,6 +24,7 @@
 		18A6B1B728F820B600EEFA21 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 18A6B1B628F820B600EEFA21 /* FirebaseAuth */; };
 		18A6B1B928F820B600EEFA21 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 18A6B1B828F820B600EEFA21 /* FirebaseFirestore */; };
 		18A6B1BB28F820B600EEFA21 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 18A6B1BA28F820B600EEFA21 /* FirebaseStorage */; };
+		18C1FD3D28FBEFFD00D8D643 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */; };
 		18CFDE3628F59EC8009BDC53 /* PizzaDeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDE3528F59EC8009BDC53 /* PizzaDeliveryApp.swift */; };
 		18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDE3728F59EC8009BDC53 /* AuthView.swift */; };
 		18CFDE3A28F59ECE009BDC53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CFDE3928F59ECE009BDC53 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		18A6B1AF28F7D5FB00EEFA21 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		18A6B1B128F7D7B000EEFA21 /* PositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCell.swift; sourceTree = "<group>"; };
 		18A6B1B328F81DC400EEFA21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		18CFDE3228F59EC8009BDC53 /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CFDE3528F59EC8009BDC53 /* PizzaDeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDeliveryApp.swift; sourceTree = "<group>"; };
 		18CFDE3728F59EC8009BDC53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -71,11 +73,11 @@
 			children = (
 				183C649928F6BD600051EE79 /* Components */,
 				1800B32028F5C3D400636EF4 /* MainTabBar.swift */,
+				18CFDE3728F59EC8009BDC53 /* AuthView.swift */,
 				183C648F28F6B46A0051EE79 /* MenuView.swift */,
 				183C649128F6B59B0051EE79 /* CartView.swift */,
 				183C649328F6B6520051EE79 /* PersonView.swift */,
 				183C649F28F6ECFC0051EE79 /* ProductDetailView.swift */,
-				18CFDE3728F59EC8009BDC53 /* AuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +106,7 @@
 				183C649D28F6C4C40051EE79 /* MenuViewModel.swift */,
 				183C64A328F6F78E0051EE79 /* ProductDetailViewModel.swift */,
 				18A6B1AD28F7D5C500EEFA21 /* CartViewModel.swift */,
+				18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A6B1AE28F7D5C500EEFA21 /* CartViewModel.swift in Sources */,
+				18C1FD3D28FBEFFD00D8D643 /* MainTabBarViewModel.swift in Sources */,
 				183C649228F6B59B0051EE79 /* CartView.swift in Sources */,
 				18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */,
 				18CFDE3628F59EC8009BDC53 /* PizzaDeliveryApp.swift in Sources */,

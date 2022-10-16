@@ -57,10 +57,23 @@ struct AuthView: View {
                     
                     Button {
                         if isAuth {
-                            print("Увійти")
-                            self.isTabViewShow.toggle()
+                            print("авторизація с Firebase")
+                            AuthService.share.signIn(email: self.email,
+                                                     password: self.password) { result in
+                            
+                                switch result {
+                                    
+                                case .success(_):
+                                    self.isTabViewShow.toggle()
+ 
+                                case .failure(let error):
+                                    alertMessage = "Помилка авторизації: \(error.localizedDescription)"
+                                    isShowAlert.toggle()
+                                }
+                            
+                            }
                         } else {
-                            print("Реєстрація")
+                            print("Реєстрація користувача")
                             
                             guard password == repitPassword else {
                                 self.alertMessage = "Паролі не співпадають"
@@ -136,7 +149,10 @@ struct AuthView: View {
             )
             .animation(Animation.easeInOut(duration: 0.3), value: isAuth)
             .fullScreenCover(isPresented: $isTabViewShow) {
-                MainTabBar()
+                
+                let mainTabBarViewModel = MainTabBarViewModel(user: AuthService.share.currentUser!)
+                
+                MainTabBar(viewModel: mainTabBarViewModel)
             }
     }
 }
