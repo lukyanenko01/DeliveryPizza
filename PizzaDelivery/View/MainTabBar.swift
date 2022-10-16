@@ -32,7 +32,10 @@ struct MainTabBar: View {
                         Text("Корзина")
                     }
                 }
-            PersonView()
+            PersonView(viewModel: PersonViewModel(profile: MainUser(id: "",
+                                                                      name: "",
+                                                                      phone: 0000000000,
+                                                                      address: "")))
                 .tabItem {
                     VStack {
                         Image(systemName: "person.circle")

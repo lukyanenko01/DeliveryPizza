@@ -18,7 +18,13 @@ struct PizzaDeliveryApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AuthView()
+            
+            if let user = AuthService.share.currentUser {
+                let viewModel = MainTabBarViewModel(user: user)
+                MainTabBar(viewModel: viewModel)
+            } else {
+                AuthView()
+            }
         }
     }
     

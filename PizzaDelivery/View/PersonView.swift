@@ -13,6 +13,8 @@ struct PersonView: View {
     @State var isQuitAlertPresented = false
     @State var isAuthViewPresented = false
     
+    @StateObject var viewModel: PersonViewModel
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 16) {
@@ -42,9 +44,12 @@ struct PersonView: View {
                     }
                 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Чувак Любительпіци")
-                        .bold()
-                    Text("098 999 99 99")
+                    TextField("Ім'я", text: $viewModel.profaile.name)
+                        .font(.body.bold())
+                    HStack {
+                        Text("+380")
+                        TextField("Телефон", value: $viewModel.profaile.phone, format: .number)
+                    }
                 }
                 Spacer()
             }.padding(.horizontal)
@@ -52,8 +57,9 @@ struct PersonView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Адес доставки: ")
                     .bold()
-                Text("м. Зароріжья, вул. Шевченка 123")
-            }//.padding(.horizontal)
+                    //Text("м. Зароріжья, вул. Шевченка 123")
+                TextField("Твоя адреса", text: $viewModel.profaile.address)
+            }.padding(.horizontal)
             
             //MARK: - таблица с заказами
             List {
@@ -77,15 +83,28 @@ struct PersonView: View {
                         Text("Так")
                     }
                 }
+            
+              
                 .fullScreenCover(isPresented: $isAuthViewPresented, onDismiss: nil) {
                     AuthView()
                 }
         }
+        .onSubmit {
+            viewModel.setProfile()
+        }
+        
+        .onAppear {
+            self.viewModel.getProfile()
+        }
+        
     }
 }
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView()
+        PersonView(viewModel: PersonViewModel(profile: MainUser(id: "",
+                                                                  name: "Володимир Володимир",
+                                                                  phone: 9999999999,
+                                                                  address: "Запоріжя")))
     }
 }

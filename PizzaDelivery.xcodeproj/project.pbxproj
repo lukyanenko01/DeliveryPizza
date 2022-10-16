@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1800B32128F5C3D400636EF4 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800B32028F5C3D400636EF4 /* MainTabBar.swift */; };
+		1816EB6528FC20E8000B9FFD /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816EB6428FC20E8000B9FFD /* PersonViewModel.swift */; };
 		183C649028F6B46A0051EE79 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C648F28F6B46A0051EE79 /* MenuView.swift */; };
 		183C649228F6B59B0051EE79 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C649128F6B59B0051EE79 /* CartView.swift */; };
 		183C649428F6B6520051EE79 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C649328F6B6520051EE79 /* PersonView.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		1800B32028F5C3D400636EF4 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		1816EB6428FC20E8000B9FFD /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		183C648F28F6B46A0051EE79 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		183C649128F6B59B0051EE79 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		183C649328F6B6520051EE79 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				183C64A328F6F78E0051EE79 /* ProductDetailViewModel.swift */,
 				18A6B1AD28F7D5C500EEFA21 /* CartViewModel.swift */,
 				18C1FD3C28FBEFFC00D8D643 /* MainTabBarViewModel.swift */,
+				1816EB6428FC20E8000B9FFD /* PersonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				18C1FD3F28FBF35900D8D643 /* MainUser.swift in Sources */,
 				18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */,
 				18CFDE3628F59EC8009BDC53 /* PizzaDeliveryApp.swift in Sources */,
+				1816EB6528FC20E8000B9FFD /* PersonViewModel.swift in Sources */,
 				183C649428F6B6520051EE79 /* PersonView.swift in Sources */,
 				1800B32128F5C3D400636EF4 /* MainTabBar.swift in Sources */,
 				18A6B1B228F7D7B000EEFA21 /* PositionCell.swift in Sources */,
