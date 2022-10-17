@@ -21,13 +21,25 @@ class PersonViewModel: ObservableObject {
             switch result {
             case .success(let orders):
                 self.orders = orders
-                print("Всбого замовлень: \(orders.count)")
+                for (index, order) in self.orders.enumerated() {
+                    DataBaseService.shared.getPosition(by: order.id) { result in
+                        switch result {
+                        case .success(let positions):
+                            self.orders[index].positions = positions
+                            print(self.orders[index].cost)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+                
+                print("Всього замовлень: \(orders.count)")
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
-    
+        
     func setProfile() {
         
         DataBaseService.shared.setProfile(user: self.profaile) { result in

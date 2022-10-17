@@ -20,8 +20,12 @@ struct PizzaDeliveryApp: App {
         WindowGroup {
             
             if let user = AuthService.share.currentUser {
-                let viewModel = MainTabBarViewModel(user: user)
-                MainTabBar(viewModel: viewModel)
+                if user.uid == "ij0r7ZDNsCh7o7vxw4HvbUU8SRx1" {
+                    AdminOrdersView()
+                } else {
+                    let viewModel = MainTabBarViewModel(user: user)
+                    MainTabBar(viewModel: viewModel)
+                }
             } else {
                 AuthView()
             }
