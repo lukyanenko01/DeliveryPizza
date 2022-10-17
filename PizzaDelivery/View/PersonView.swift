@@ -63,7 +63,14 @@ struct PersonView: View {
             
             //MARK: - таблица с заказами
             List {
-                Text("Твої замовлення будуть тут")
+                if viewModel.orders.count == 0 {
+                    Text("Твої замовлення будуть тут")
+                } else {
+                    ForEach(viewModel.orders, id: \.id) { order in
+                        OrderCell(order: order)
+                    }
+                }
+                
             } .listStyle(.plain)
             
             Button {
@@ -95,6 +102,7 @@ struct PersonView: View {
         
         .onAppear {
             self.viewModel.getProfile()
+            self.viewModel.getOrders()
         }
         
     }

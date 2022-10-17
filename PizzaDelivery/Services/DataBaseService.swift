@@ -23,6 +23,32 @@ class DataBaseService {
     
     private init() { }
     
+    func getOrders(by userId: String?, completion: @escaping (Result<[Order], Error>) -> Void) {
+        self.orderRef.getDocuments { qSnap, error in
+            
+            if let qSnap = qSnap {
+                var orders = [Order]()
+                for doc in qSnap.documents {
+                    // Ветка юзера
+                    if let userId = userId {
+                        if let order = Order(doc: doc), order.userId == userId {
+                            orders.append(order)
+                        }
+                        //Ветка админа
+                    } else {
+                        if let order = Order(doc: doc) {
+                            orders.append(order)
+                        }
+                    }
+                }
+                completion(.success(orders))
+            } else if let error = error {
+                completion(.failure(error))
+            }
+            
+        }
+    }
+    
     func setOrder(order: Order, completion: @escaping (Result<Order, Error>) -> Void) {
         
         orderRef.document(order.id).setData(order.representation) { error in

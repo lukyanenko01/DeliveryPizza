@@ -10,9 +10,22 @@ import Foundation
 class PersonViewModel: ObservableObject {
     
     @Published var profaile: MainUser
+    @Published var orders: [Order] = [Order]()
     
     init(profile: MainUser) {
         self.profaile = profile
+    }
+    
+    func getOrders() {
+        DataBaseService.shared.getOrders(by: AuthService.share.currentUser!.accessibilityHint) { result in
+            switch result {
+            case .success(let orders):
+                self.orders = orders
+                print("Всбого замовлень: \(orders.count)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func setProfile() {
