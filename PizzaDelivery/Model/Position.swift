@@ -16,7 +16,7 @@ struct Position: Identifiable {
     
     var cost: Int {
         
-        return product.price * self.count
+        return product.price //* self.count
         
     }
     
