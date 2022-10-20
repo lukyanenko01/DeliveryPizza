@@ -44,7 +44,7 @@ class MenuViewModel: ObservableObject {
                 descript: "Дешева піца бери і їж")
     ]
     
-    var pizza = [
+    @Published var pizza = [
         Product(id: "1",
                 title: "Маргарита Гурме",
                 imageUrl: "Not Found",
@@ -71,5 +71,17 @@ class MenuViewModel: ObservableObject {
                 price: 139,
                 descript: "Дешева піца бери і їж")
     ]
+    
+    func getProducts() {
+        DataBaseService.shared.getProducts { result in
+            switch result {
+                
+            case .success(let products):
+                self.pizza = products
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
 }

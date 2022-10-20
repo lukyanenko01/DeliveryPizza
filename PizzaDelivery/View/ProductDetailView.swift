@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailView: View {
     
-    var viewModel: ProductDetailViewModel
+    @State var viewModel: ProductDetailViewModel
     @State var size = "S"
     @State var count = 1
     
@@ -20,7 +20,7 @@ struct ProductDetailView: View {
         VStack {
             VStack(alignment: .leading) {
                 
-                Image("pizzaPH")
+                Image(uiImage: self.viewModel.image!)
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: 360)
                     .aspectRatio(contentMode: .fit)
@@ -70,7 +70,9 @@ struct ProductDetailView: View {
                     .cornerRadius(30)
 
             }
-
+            .onAppear {
+                self.viewModel.getImage()
+            }
             
             Spacer()
         }

@@ -9,15 +9,17 @@ import SwiftUI
 
 struct MenuView: View {
     
-    let layout = [GridItem(.adaptive(minimum: screen.width / 2.4))]
-    
+    let layoutForPopular = [GridItem(.adaptive(minimum: screen.width / 2.2))]
+    let layoutForPizza = [GridItem(.adaptive(minimum: screen.width / 2.4))]
+    @StateObject var viewModel = MenuViewModel()
+
     var body: some View {
         
         //MARK: - Section 1
         ScrollView(.vertical, showsIndicators: false) {
-            Section("Фаворити") {
+            Section("Акції") {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: layout, spacing: 16) {
+                    LazyHGrid(rows: layoutForPopular, spacing: 16) {
                         ForEach(MenuViewModel.shared.favoriteProducts, id: \.id) { item in
                             NavigationLink {
                                 
@@ -35,10 +37,10 @@ struct MenuView: View {
             
             //MARK: - Section 2
             ScrollView(.vertical, showsIndicators: false) {
-                Section("Фаворити") {
+                Section("Піца") {
                     ScrollView(.vertical, showsIndicators: false) {
-                        LazyVGrid(columns: layout, spacing: 16) {
-                            ForEach(MenuViewModel.shared.pizza, id: \.id) { item in
+                        LazyVGrid(columns: layoutForPizza, spacing: 16) {
+                            ForEach(viewModel.pizza, id: \.id) { item in
                                 NavigationLink {
                                     let viewModel = ProductDetailViewModel(product: item)
                                     ProductDetailView(viewModel: viewModel)
@@ -50,8 +52,15 @@ struct MenuView: View {
                         }.padding()
                     }
                 }
-            }            
+            }
+            .background(Color.white)
+                .cornerRadius(20)
+
         }.navigationBarHidden(true)
+            .background(Color.red)
+            .onAppear {
+                viewModel.getProducts()
+            }
     }
 }
 
