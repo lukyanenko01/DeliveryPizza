@@ -39,6 +39,8 @@
 		18CFDE3828F59EC8009BDC53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDE3728F59EC8009BDC53 /* AuthView.swift */; };
 		18CFDE3A28F59ECE009BDC53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CFDE3928F59ECE009BDC53 /* Assets.xcassets */; };
 		18CFDE3D28F59ECE009BDC53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CFDE3C28F59ECE009BDC53 /* Preview Assets.xcassets */; };
+		F21FBA892901247D001FD396 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FBA882901247D001FD396 /* ImagePicker.swift */; };
+		F21FBA8B290127AD001FD396 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FBA8A290127AD001FD396 /* AddProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		18CFDE3728F59EC8009BDC53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		18CFDE3928F59ECE009BDC53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18CFDE3C28F59ECE009BDC53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F21FBA882901247D001FD396 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F21FBA8A290127AD001FD396 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				183C649A28F6BD6D0051EE79 /* ProductCell.swift */,
 				18A6B1B128F7D7B000EEFA21 /* PositionCell.swift */,
 				18940FDF28FD1D2E00D2203B /* OrderCell.swift */,
+				F21FBA882901247D001FD396 /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			children = (
 				18940FE128FD3BE500D2203B /* AdminOrdersView.swift */,
 				18940FE628FD40E400D2203B /* OrderView.swift */,
+				F21FBA8A290127AD001FD396 /* AddProductView.swift */,
 			);
 			path = AdminInterface;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 				18A6B1AE28F7D5C500EEFA21 /* CartViewModel.swift in Sources */,
 				18940FE528FD3D7100D2203B /* AdminOrdersViewModel.swift in Sources */,
 				18C1FD3D28FBEFFD00D8D643 /* MainTabBarViewModel.swift in Sources */,
+				F21FBA892901247D001FD396 /* ImagePicker.swift in Sources */,
 				18BFE49F28FC4A320036315E /* Order.swift in Sources */,
 				18C1FD4128FBF60300D8D643 /* DataBaseService.swift in Sources */,
 				183C649228F6B59B0051EE79 /* CartView.swift in Sources */,
@@ -290,6 +297,7 @@
 				18940FE228FD3BE600D2203B /* AdminOrdersView.swift in Sources */,
 				18A6B1B228F7D7B000EEFA21 /* PositionCell.swift in Sources */,
 				18940FE028FD1D2E00D2203B /* OrderCell.swift in Sources */,
+				F21FBA8B290127AD001FD396 /* AddProductView.swift in Sources */,
 				18BFE4A128FC50340036315E /* OrderStatus.swift in Sources */,
 				183C64A428F6F78E0051EE79 /* ProductDetailViewModel.swift in Sources */,
 				18A6B1B028F7D5FB00EEFA21 /* Position.swift in Sources */,
@@ -432,6 +440,8 @@
 				DEVELOPMENT_TEAM = T73BLRAKR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Дозвольте використовувати камеру";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Дозвольте відкрити галарею, для вибору фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +471,8 @@
 				DEVELOPMENT_TEAM = T73BLRAKR5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Дозвольте використовувати камеру";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Дозвольте відкрити галарею, для вибору фото";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
