@@ -21,6 +21,10 @@ class DataBaseService {
         return db.collection("orders")
     }
     
+    private var productsRef: CollectionReference {
+        return db.collection("products")
+    }
+    
     private init() { }
     
     func getPosition(by orderId: String, completion: @escaping (Result<[Position], Error>) -> Void) {
@@ -127,6 +131,25 @@ class DataBaseService {
             
             complition(.success(user))
         }
+    }
+    
+    func setProduct(product: Product, image: Data, complition: @escaping (Result<Product, Error>) -> Void) {
+        StorageService.shared.upload(id: product.id, image: image) { result in
+            switch result {
+            case .success(let sizeInfo):
+                    print(sizeInfo)
+                self.productsRef.document(product.id).setData(product.representation) { error in
+                    if let error = error {
+                        complition(.failure(error))
+                    } else {
+                        complition(.success(product))
+                    }
+                }
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+        
     }
     
 }

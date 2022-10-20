@@ -10,11 +10,11 @@ import SwiftUI
 struct AddProductView: View {
     
     @State private var showImagePicker = false
-    @State private var image = UIImage(named: "pizzaPH")!
+    @State private var image = UIImage(named: "pizzaSymbol")!
     @State private var title: String = ""
-    @State private var discript: String = ""
+    @State private var descript: String = ""
     @State private var price: Int? = nil
-
+    @Environment (\.dismiss) var dismiss
     
     var body: some View {
 
@@ -23,7 +23,7 @@ struct AddProductView: View {
                 .font(.title2).bold()
             Image(uiImage: image)
                 .resizable()
-                .frame(maxWidth: .infinity,minHeight: 300 , maxHeight: 320)
+                .frame(maxWidth: .infinity,minHeight: 200 , maxHeight: 320)
                 .aspectRatio(contentMode: .fit)
                 .onTapGesture {
                     showImagePicker.toggle()
@@ -33,11 +33,29 @@ struct AddProductView: View {
             TextField("Ціна продукта", value: $price, format: .number)
                 .keyboardType(.numberPad)
                 .padding()
-            TextField("Опис продукта", text: $discript)
+            TextField("Опис продукта", text: $descript)
                 .padding()
             
             Button {
-                print("Зберегти")
+                
+                guard let price = price else {
+                    print("Невозможно извлечь цену")
+                    return
+                }
+                
+                let product = Product(id: UUID().uuidString, title: title, price: price, descript: descript)
+                guard let imageData = image.jpegData(compressionQuality: 0.15) else { return }
+                DataBaseService.shared.setProduct(product: product, image: imageData) { result in
+                    switch result {
+                    case .success(let product):
+                        print(product.title)
+                        dismiss()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+                
+                
             } label: {
                 Text("Зберегти")
                     .padding()

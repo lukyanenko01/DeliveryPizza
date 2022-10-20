@@ -41,6 +41,7 @@
 		18CFDE3D28F59ECE009BDC53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CFDE3C28F59ECE009BDC53 /* Preview Assets.xcassets */; };
 		F21FBA892901247D001FD396 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FBA882901247D001FD396 /* ImagePicker.swift */; };
 		F21FBA8B290127AD001FD396 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FBA8A290127AD001FD396 /* AddProductView.swift */; };
+		F21FBA8D290133BE001FD396 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21FBA8C290133BE001FD396 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		18CFDE3C28F59ECE009BDC53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F21FBA882901247D001FD396 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F21FBA8A290127AD001FD396 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		F21FBA8C290133BE001FD396 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				183C649628F6BC410051EE79 /* Product.swift */,
+				18C1FD3E28FBF35900D8D643 /* MainUser.swift */,
 				18A6B1AF28F7D5FB00EEFA21 /* Position.swift */,
 				18BFE49E28FC4A320036315E /* Order.swift */,
 				18BFE4A028FC50340036315E /* OrderStatus.swift */,
-				18C1FD3E28FBF35900D8D643 /* MainUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +151,7 @@
 			children = (
 				186812D528F838CD00C85A88 /* AuthService.swift */,
 				18C1FD4028FBF60300D8D643 /* DataBaseService.swift */,
+				F21FBA8C290133BE001FD396 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				18A6B1B228F7D7B000EEFA21 /* PositionCell.swift in Sources */,
 				18940FE028FD1D2E00D2203B /* OrderCell.swift in Sources */,
 				F21FBA8B290127AD001FD396 /* AddProductView.swift in Sources */,
+				F21FBA8D290133BE001FD396 /* StorageService.swift in Sources */,
 				18BFE4A128FC50340036315E /* OrderStatus.swift in Sources */,
 				183C64A428F6F78E0051EE79 /* ProductDetailViewModel.swift in Sources */,
 				18A6B1B028F7D5FB00EEFA21 /* Position.swift in Sources */,
